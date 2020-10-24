@@ -131,6 +131,7 @@ function registerButtonHandlers() {
             .then(function(myJson) {
                 console.log(myJson);
             });
+        console.alert('button pressed!');
     });
     document.getElementById('WriteCourseTargetPicker').addEventListener('click', function () {
         
