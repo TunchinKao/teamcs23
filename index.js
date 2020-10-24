@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000;
 const myLiffId = process.env.MY_LIFF_ID;
 const redirectUri = process.env.REDIRECT_URI;
 const axios = require('axios');
+const tArr = require('./public/return-string');
 
 app.use(express.static('public'));
 
@@ -18,6 +19,11 @@ app.get('/send-id', function(req, res) {
 app.get('/a', function(req, res){
     console.log('req');
     res.json({abc: '123'});
+});
+
+app.get('/courseList', function(req, res){
+    console.log('reqCourse');
+    res.json({list: tArr});
 });
 
 if (process.env.NODE_ENV === 'development') {
@@ -34,5 +40,6 @@ if (process.env.NODE_ENV === 'development') {
     server.listen(8000, function() {
         console.log(`https listening on port 8000!`);
     });
+    console.log(tArr);
 }
 app.listen(port, () => console.log(`http listening on port ${port}!`));

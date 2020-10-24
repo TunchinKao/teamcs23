@@ -1,60 +1,56 @@
-<!DOCTYPE html>
-<html lang="zh-Hant-TW">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LIFF Workshop</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
-        <!-- Compiled and minified CSS -->
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-        />
-    
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <style>
-          .box {
-            height: 200px;
-          }
-        </style>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+      .box {
+        height: 200px;
+      }
+    </style>
+    <title>Learning Materialize</title>
+  </head>
+  <body>
+    <div class="container">
+      <h4>Icons</h4>
+      <i class="material-icons red-text">error</i>
+      <i class="material-icons yellow-text text-darken-2">warning</i>
+      <i class="material-icons grey-text">cloud</i>
+      <i class="material-icons light-blue-text">folder</i>
+      <h4>Icons on Buttons</h4>
+      <a href="#" class="btn indigo">
+        <span>Send</span>
+        <i class="material-icons right">send</i>
+      </a>
+      <a href="#" class="btn pink waves-effect waves-light">
+        <span>Email</span>
+        <i class="material-icons left">email</i>
+      </a>
+      <h4>Icons on Floating Buttons</h4>
+      <a href="#" class="btn-floating light-blue pulse">
+        <i class="material-icons">add</i>
+      </a>
+      <a href="#" class="btn-floating red pulse">
+        <i class="material-icons">remove</i>
+      </a>
+      <a href="#" class="btn-floating orange pulse">
+        <i class="material-icons">edit</i>
+      </a>
+    </div>
 
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    <div id="liffData">
-                        <h3 id="profileName">LIFF Hackthon</h3>
-                        <table>
-                            <tr>
-                                <th>is logged in</th>
-                                <td id="isLoggedIn" class="textLeft"></td>
-                            </tr>
-                            <tr>
-                                <th>is in clint</th>
-                                <td id="isInClient" class="textLeft"></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <button id="liffLoginButton" class="btn btn-success">LINE Login</button>
-                    <button id="liffLogoutButton" class="btn">LINE Logout</button>
-                    <button id="for_test" class="btn">test</button>
-                    <div class="mt-3">
-                        <button id="shareMeTargetPicker" class="btn btn-primary">Share me!</button>
-                    </div>
-                    <div class="mt-3">
-                        <button id="shareMyCourseTargetPicker" class="btn btn-primary">Share my Course!</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <label>請選擇學院</label>
+    <label>請選擇學院</label>
   <select class="browser-default" id="college-list" onchange="changeCollege(this.selectedIndex)">
   </select>
 
@@ -62,7 +58,7 @@
   <select class="browser-default" id="sector-list">
   </select>
 
-  <label>請選擇年級</label>
+  <label>請選擇學院</label>
   <select class="browser-default" id="graduate-list">
   </select>
       
@@ -71,6 +67,7 @@
     var colleges=['商學院','工學院','建設學院','金融學院','建築專業學院','國際科技與管理學院','資電學院','人文社會學院','理學院','經營管理學院','跨領域設計學院','跨科系學習'];
     var collegeSelect=document.getElementById("college-list");
      var inner="";
+     //<option value="" disabled selected>Choose your option</option>
      for(var i=0;i<colleges.length;i++){
        inner=inner+'<option value=i>'+colleges[i]+'</option>';
      }
@@ -100,7 +97,7 @@
           changeCollege(document.getElementById("college-list").selectedIndex);
           
 
-          var graduate = ['大學部一年級上學期', '大學部一年級下學期','大學部二年級上學期','大學部二年級下學期','大學部三年級上學期','大學部三年級下學期','大學部四年級上學期','大學部四年級下學期','研究所一年級', '研究所二年級'];
+          var graduate = ['大學部一年級', '大學部二年級','大學部三年級','大學部四年級','研究所一年級', '研究所二年級'];
           var graduateSelect=document.getElementById("graduate-list");
     var inner="";
      for(var i=0;i<graduate.length;i++){
@@ -108,8 +105,5 @@
     }
      graduateSelect.innerHTML=inner;
   </script>
-        <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-        <script src="liff-starter.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    </body>
+  </body>
 </html>
