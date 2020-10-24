@@ -134,14 +134,8 @@ function registerButtonHandlers() {
                 'text': 'Hey! Check out' + PROFILE.displayName +  'My Current Studying fields'
             }, {
                 "type": "image",
-                        "src": "public/images/campaign/Percentage.jpg",
-                        "size": "full",
-                        "aspectRatio": "20:13",
-                        "aspectMode": "cover",
-                        "action": {
-                            "type": "uri",
-                            "uri": liff.permanentLink.createUrl()
-                        }
+                "url": "https://i.ibb.co/bXLt935/Percentage.jpg",
+                "size": "full"
             }]).then(function (res) {
                 if (res) alert('Circle Graph sent!');
             }).catch(function (res) {
