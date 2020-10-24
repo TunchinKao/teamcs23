@@ -14,8 +14,8 @@ app.use(express.static('public'));
 app.get('/send-id', function(req, res) {
     res.json({id: myLiffId, redirectUri });
 });
-app.get('/sendtest', function(req, res) {
-    res.json({theworld: zawarudo, redirectUri });
+app.get('/send_test', function(req, res) {
+    res.json({the_world: zawarudo, redirectUri });
 });
 if (process.env.NODE_ENV === 'development') {
     const devCert = fs.readFileSync(

@@ -142,15 +142,15 @@ function registerButtonHandlers() {
         }
     });
     document.getElementById('WriteCourseTargetPicker').addEventListener('click', function () {
-        console.alert('button pressed!');
-        
-        fetch('/sendtest')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(myJson) {
-                console.log(myJson);
-            });
+        console.alert(__dirname);
+        // fetch('/send_test')
+        // .then(function(res) {
+        //     console.alert('button pressed!');
+        //     return res.json();
+        // })
+        // .then(function(myJson) {
+        //     console.log(myJson);
+        // });
     });
     // login call, only when external browser is used
     document.getElementById('liffLoginButton').addEventListener('click', function() {
