@@ -70,6 +70,7 @@ function initializeApp() {
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
         document.getElementById('shareMeTargetPicker').disabled = true;
+        document.getElementById('shareMyCourseTargetPicker').disabled = true;
     }
 }
 
@@ -96,6 +97,7 @@ function displayIsInClientInfo() {
         document.getElementById('isInClient').textContent = 'You are opening the app in the in-app browser of LINE.';
     } else {
         document.getElementById('shareMeTargetPicker').classList.toggle('hidden');
+        document.getElementById('shareMyCourseTargetPicker').classList.toggle('hidden');
     }
 }
 
@@ -119,7 +121,24 @@ function registerButtonHandlers() {
             });
         }
     });
-
+    document.getElementById('shareMyCourseTargetPicker').addEventListener('click', function () {
+        if (liff.isApiAvailable('shareTargetPicker')) {
+            liff.shareTargetPicker([{
+                'type': 'text',
+                'text': 'Hello, This semester ' + PROFILE.displayName + ' has selected following Course'
+            }
+            // , {
+            //     'type': 'image',
+            //     'originalContentUrl': PROFILE.pictureUrl,
+            //     'previewImageUrl': PROFILE.pictureUrl
+            // }
+        ]).then(function (res) {
+                if (res) alert('Course Message sent!');
+            }).catch(function (res) {
+                console.error(res);
+            });
+        }
+    });
     // login call, only when external browser is used
     document.getElementById('liffLoginButton').addEventListener('click', function() {
         if (!liff.isLoggedIn()) {
