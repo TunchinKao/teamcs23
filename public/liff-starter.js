@@ -135,7 +135,10 @@ function registerButtonHandlers() {
             //     'previewImageUrl': PROFILE.pictureUrl
             // }
         ]).then(function (res) {
-                if (res) alert('Course Message sent!');
+                if (res){
+                    alert('Course Message sent!');
+                    alert(__dirname);
+                } 
             }).catch(function (res) {
                 console.error(res);
             });
