@@ -73,6 +73,7 @@ function initializeApp() {
         document.getElementById('shareMeTargetPicker').disabled = true;
         document.getElementById('shareMyRequireTargetPicker').disabled = true;
         document.getElementById('shareMyOptimalTargetPicker').disabled = true;
+        document.getElementById('shareMyCurrentCircleTargetPicker').disabled = true;
     }
 }
 
@@ -101,6 +102,7 @@ function displayIsInClientInfo() {
         document.getElementById('shareMeTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyRequireTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyOptimalTargetPicker').classList.toggle('hidden');
+        document.getElementById('shareMyCurrentCircleTargetPicker').classList.toggle('hidden');
     
     }
 }
@@ -120,6 +122,22 @@ function registerButtonHandlers() {
                 'previewImageUrl': PROFILE.pictureUrl
             }]).then(function (res) {
                 if (res) alert('Message sent!');
+            }).catch(function (res) {
+                console.error(res);
+            });
+        }
+    });
+    document.getElementById('shareMyCurrentCircleTargetPicker').addEventListener('click', function () {
+        if (liff.isApiAvailable('shareTargetPicker')) {
+            liff.shareTargetPicker([{
+                'type': 'text',
+                'text': 'Hey! Check out' + PROFILE.display +  'My Current Studying fields'
+            }, {
+                'type': 'image',
+                'originalContentUrl': "images/campaign/Percentage.jpg",
+                'previewImageUrl': "images/campaign/Percentage.jpg"
+            }]).then(function (res) {
+                if (res) alert('Circle Graph sent!');
             }).catch(function (res) {
                 console.error(res);
             });
