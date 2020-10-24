@@ -150,9 +150,35 @@ function registerButtonHandlers() {
         }
     });
     document.getElementById('for_test').addEventListener('click', function(){
+        // var reqnumber = 1;
         fetch('/courseList').then(function(res){
+            return res.json();
+        }).then(function(res) {
             console.log('asking /courseList');
-            console.log(res.json());
+            // console.log('[res]', res);  
+            
+            var message = "";
+            // console.log('[res.length]', res.length);
+            var count = res['list'].length;
+            console.log('[count]', count);
+            for(var index = 0; index < count; index++){
+                
+                message += res['list'][index];
+                
+                message+='\n';
+            }
+            console.log('[message]', message);
+
+            if (liff.isApiAvailable('shareTargetPicker')) {
+                liff.shareTargetPicker([{
+                    'type': 'text',
+                    'text': message
+                }]).then(function (res) {
+                    if (res) alert('Message sent!');
+                }).catch(function (res) {
+                    console.error(res);
+                });
+            }
         }).catch(function(err){
             console.log(err);
         });
