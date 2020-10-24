@@ -135,7 +135,13 @@ function registerButtonHandlers() {
             }, {
                 "type": "image",
                 "url": "https://i.ibb.co/bXLt935/Percentage.jpg",
-                "size": "full"
+                "size": "full",
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "action": {
+                    "type": "uri",
+                    "uri": liff.permanentLink.createUrl()
+                }
             }]).then(function (res) {
                 if (res) alert('Circle Graph sent!');
             }).catch(function (res) {
