@@ -71,8 +71,7 @@ function initializeApp() {
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
         document.getElementById('shareMeTargetPicker').disabled = true;
-        document.getElementById('shareMyRequireTargetPicker').disabled = true;
-        document.getElementById('shareMyOptimalTargetPicker').disabled = true;
+        document.getElementById('shareMyCourseTargetPicker').disabled = true;
     }
 }
 
@@ -99,9 +98,7 @@ function displayIsInClientInfo() {
         document.getElementById('isInClient').textContent = 'You are opening the app in the in-app browser of LINE.';
     } else {
         document.getElementById('shareMeTargetPicker').classList.toggle('hidden');
-        document.getElementById('shareMyRequireTargetPicker').classList.toggle('hidden');
-        document.getElementById('shareMyOptimalTargetPicker').classList.toggle('hidden');
-    
+        document.getElementById('shareMyCourseTargetPicker').classList.toggle('hidden');
     }
 }
 
@@ -125,94 +122,25 @@ function registerButtonHandlers() {
             });
         }
     });
-    document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
-        // var reqnumber = 1;
-        fetch('/requireCourseList').then(function(res){
-            return res.json();
-        }).then(function(res) {
-            console.log('asking for /requireCourseList');
-            // console.log('[res]', res);  
-            
-            var message = "";
-            // console.log('[res.length]', res.length);
-            var count = res['list'].length;
-            console.log('[count]', count);
-            for(var index = 0; index < count; index++){
-                
-                message += res['list'][index];
-                
-                message+='\n';
+    document.getElementById('shareMyCourseTargetPicker').addEventListener('click', function () {
+        if (liff.isApiAvailable('shareTargetPicker')) {
+            liff.shareTargetPicker([{
+                'type': 'text',
+                'text': 'Hello, This semester ' + PROFILE.displayName + ' has selected following Course'
             }
-            console.log('[message]', message);
-
-            if (liff.isApiAvailable('shareTargetPicker')) {
-                liff.shareTargetPicker([{
-                    'type': 'text',
-                    'text': message
-                }]).then(function (res) {
-                    if (res) alert('Message sent!');
-                }).catch(function (res) {
-                    console.error(res);
-                });
-            }
-        }).catch(function(err){
-            console.log(err);
-        });
+        ]).then(function (res) {
+                if (res) alert('Course Message sent!');
+            }).catch(function (res) {
+                console.error(res);
+            });
+        }
     });
-    document.getElementById('shareMyOptimalTargetPicker').addEventListener('click', function(){
-        // var reqnumber = 1;
-        fetch('/optimalCourseList').then(function(res){
-            return res.json();
-        }).then(function(res) {
-            console.log('asking for /optimalCourseList');
-            // console.log('[res]', res);  
-            
-            var message = "";
-            // console.log('[res.length]', res.length);
-            var count = res['list'].length;
-            console.log('[count]', count);
-            for(var index = 0; index < count; index++){
-                
-                message += res['list'][index];
-                
-                message+='\n';
-            }
-            console.log('[message]', message);
-
-            if (liff.isApiAvailable('shareTargetPicker')) {
-                liff.shareTargetPicker([{
-                    'type': 'text',
-                    'text': message
-                }]).then(function (res) {
-                    if (res) alert('Message sent!');
-                }).catch(function (res) {
-                    console.error(res);
-                });
-            }
-        }).catch(function(err){
-            console.log(err);
-        });
-    });
-    // document.getElementById('shareMyCourseTargetPicker').addEventListener('click', function () {
-    //     if (liff.isApiAvailable('shareTargetPicker')) {
-    //         liff.shareTargetPicker([{
-    //             'type': 'text',
-    //             'text': 'Hello, This semester ' + PROFILE.displayName + ' has selected following Course'
-    //         }
-    //     ]).then(function (res) {
-    //             if (res) alert('Course Message sent!');
-    //         }).catch(function (res) {
-    //             console.error(res);
-    //         });
-    //     }
-    // });
     // login call, only when external browser is used
     document.getElementById('liffLoginButton').addEventListener('click', function() {
         if (!liff.isLoggedIn()) {
             liff.login();      
         }
     });
-    
 
     // logout call only when external browse
     document.getElementById('liffLogoutButton').addEventListener('click', function() {
@@ -220,6 +148,40 @@ function registerButtonHandlers() {
             liff.logout();
             window.location.reload();
         }
+    });
+    document.getElementById('for_test').addEventListener('click', function(){
+        // var reqnumber = 1;
+        fetch('/courseList').then(function(res){
+            return res.json();
+        }).then(function(res) {
+            console.log('asking /courseList');
+            // console.log('[res]', res);  
+            
+            var message = "";
+            // console.log('[res.length]', res.length);
+            var count = res['list'].length;
+            console.log('[count]', count);
+            for(var index = 0; index < count; index++){
+                
+                message += res['list'][index];
+                
+                message+='\n';
+            }
+            console.log('[message]', message);
+
+            if (liff.isApiAvailable('shareTargetPicker')) {
+                liff.shareTargetPicker([{
+                    'type': 'text',
+                    'text': message
+                }]).then(function (res) {
+                    if (res) alert('Message sent!');
+                }).catch(function (res) {
+                    console.error(res);
+                });
+            }
+        }).catch(function(err){
+            console.log(err);
+        });
     });
 }
 
