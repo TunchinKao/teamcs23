@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const myLiffId = process.env.MY_LIFF_ID;
 const redirectUri = process.env.REDIRECT_URI;
-const axios = require('axios');
+// const axios = require('axios');
 const tArr = require('./public/return-string')({grade : 2});
 
 app.use(express.static('public'));
