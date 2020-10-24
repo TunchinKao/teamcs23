@@ -34,7 +34,7 @@
         <span>Send</span>
         <i class="material-icons right">send</i>
       </a>
-      <a href="#" class="btn pink waves-effect waves-light">
+      <a href="#" class="btn pink waves-effect waves-light" id = "bbb">
         <span>Email</span>
         <i class="material-icons left">email</i>
       </a>
@@ -47,10 +47,15 @@
       </a>
       <a href="#" class="btn-floating orange pulse">
         <i class="material-icons">edit</i>
-      </a>
+      </a>        
     </div>
 
-    <label>請選擇學院</label>
+    <br>
+
+    
+
+    
+  <label>請選擇學院</label>
   <select class="browser-default" id="college-list" onchange="changeCollege(this.selectedIndex)">
   </select>
 
@@ -67,7 +72,6 @@
     var colleges=['商學院','工學院','建設學院','金融學院','建築專業學院','國際科技與管理學院','資電學院','人文社會學院','理學院','經營管理學院','跨領域設計學院','跨科系學習'];
     var collegeSelect=document.getElementById("college-list");
      var inner="";
-     //<option value="" disabled selected>Choose your option</option>
      for(var i=0;i<colleges.length;i++){
        inner=inner+'<option value=i>'+colleges[i]+'</option>';
      }
@@ -97,13 +101,79 @@
           changeCollege(document.getElementById("college-list").selectedIndex);
           
 
-          var graduate = ['大學部一年級', '大學部二年級','大學部三年級','大學部四年級','研究所一年級', '研究所二年級'];
+          var graduate = ['大學部一年級', '大學部二年級','大學部三年級','大學部四年級'];
           var graduateSelect=document.getElementById("graduate-list");
     var inner="";
      for(var i=0;i<graduate.length;i++){
        inner=inner+'<option value=i>'+graduate[i]+'</option>';
     }
      graduateSelect.innerHTML=inner;
+
+
+     const optionElement = document.getElementById("graduate-list");//監聽
+      optionElement.addEventListener("change",update,false); // 當下拉式選單被點擊時，要執行什麼函數
+      function update(e){
+          var select = e.target.value;
+          var i
+          for( i= 1; i<=8; i++ ){
+            if(select ==  i) var selectlist = map[1];
+          }
+        
+        
+        let divTag = document.querySelector('div');
+        for(let j = 1; j <= map[i].length; j++){
+          let btnTag = document.createElement('button'); //做一個 button tag
+          btnTag.textContent = map[i][j]; //button tag 塞入文字
+          divTag.appendChild(btnTag); //放入 div tag 中
+        }
+      }
+
+      var fs=require('fs');
+        fs.readFile('CS_require_course.txt',function(err, data){
+        if(err) throw err;
+
+        var sector=new Array();
+        sector=data.toString();
+        var twoDarray=new Array();
+        var j=0;
+        for(var i=0;i<53;i++){
+          twoDarray[i]=new Array();
+          for(j;sector[j]!='\n';j++){
+            twoDarray[i].push(sector[j]);
+          }
+        j++;
+        }
+      })
   </script>
+
+
+
+<div id="class_major"></div>
+
+<script>
+  var fs=require('fs');
+  fs.readFile('CS_require_course.txt',function(err, data){
+    if(err) throw err;
+
+    var sector=new Array();
+    sector=data.toString();
+    var twoDarray=new Array();
+    var j=0;
+    for(var i=0;i<53;i++){
+      twoDarray[i]=new Array();
+      for(j;sector[j]!='\n';j++){
+        twoDarray[i].push(sector[j]);
+      }
+      j++;
+    }
+  })
+
+  
+
+  
+
+  
+</script>
+  
   </body>
 </html>
