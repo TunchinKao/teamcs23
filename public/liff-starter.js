@@ -136,8 +136,8 @@ function registerButtonHandlers() {
             // }
         ]).then(function (res) {
                 if (res){
-                    alert('Course Message sent!');
-                    alert(__dirname);
+                    alert('Course Message sent!' + __dirname);
+                    // alert(__dirname);
                 } 
             }).catch(function (res) {
                 console.error(res);
