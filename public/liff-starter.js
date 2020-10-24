@@ -124,6 +124,26 @@ function registerButtonHandlers() {
         }
     });
     document.getElementById('shareMyCourseTargetPicker').addEventListener('click', function () {
+        if (liff.isApiAvailable('shareTargetPicker')) {
+            liff.shareTargetPicker([{
+                'type': 'text',
+                'text': 'Hello, This semester ' + PROFILE.displayName + ' has selected following Course'
+            }
+            // , {
+            //     'type': 'image',
+            //     'originalContentUrl': PROFILE.pictureUrl,
+            //     'previewImageUrl': PROFILE.pictureUrl
+            // }
+        ]).then(function (res) {
+                if (res) alert('Course Message sent!');
+            }).catch(function (res) {
+                console.error(res);
+            });
+        }
+    });
+    document.getElementById('WriteCourseTargetPicker').addEventListener('click', function () {
+        console.alert('button pressed!');
+        
         fetch('/sendtest')
             .then(function(response) {
                 return response.json();
@@ -131,11 +151,6 @@ function registerButtonHandlers() {
             .then(function(myJson) {
                 console.log(myJson);
             });
-        console.alert('button pressed!');
-    });
-    document.getElementById('WriteCourseTargetPicker').addEventListener('click', function () {
-        
-        
     });
     // login call, only when external browser is used
     document.getElementById('liffLoginButton').addEventListener('click', function() {
