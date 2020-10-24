@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LIFF Workshop</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div id="liffData">
+                        <h3 id="profileName">LIFF Workshop</h3>
+                        <table>
+                            <tr>
+                                <th>isLoggedIn</th>
+                                <td id="isLoggedIn" class="textLeft"></td>
+                            </tr>
+                            <tr>
+                                <th>isInClient</th>
+                                <td id="isInClient" class="textLeft"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <button id="liffLoginButton" class="btn btn-success">LINE Login</button>
+                    <button id="liffLogoutButton" class="btn">LINE Logout</button>
+                    <div class="mt-3">
+                        <button id="shareMeTargetPicker" class="btn btn-primary">Share me!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+        <script src="liff-starter.js"></script>
+    </body>
+</html>
