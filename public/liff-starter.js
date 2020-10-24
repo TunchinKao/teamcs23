@@ -128,11 +128,6 @@ function registerButtonHandlers() {
                 'type': 'text',
                 'text': 'Hello, This semester ' + PROFILE.displayName + ' has selected following Course'
             }
-            // , {
-            //     'type': 'image',
-            //     'originalContentUrl': PROFILE.pictureUrl,
-            //     'previewImageUrl': PROFILE.pictureUrl
-            // }
         ]).then(function (res) {
                 if (res) alert('Course Message sent!');
             }).catch(function (res) {
@@ -156,6 +151,7 @@ function registerButtonHandlers() {
     });
     document.getElementById('for_test').addEventListener('click', function(){
         fetch('/courseList').then(function(res){
+            console.log('asking /courseList');
             console.log(res.json());
         }).catch(function(err){
             console.log(err);
