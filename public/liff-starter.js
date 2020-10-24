@@ -3,7 +3,7 @@ let PROFILE = null;
 window.onload = function() {
     const useNodeJS = true;   // if you are not using a node server, set this value to false
     const defaultLiffId = "";   // change the default LIFF value if you are not using a node server
-
+    
     // DO NOT CHANGE THIS
     let myLiffId = "";
 
@@ -71,6 +71,7 @@ function initializeApp() {
         document.getElementById('liffLogoutButton').disabled = true;
         document.getElementById('shareMeTargetPicker').disabled = true;
         document.getElementById('shareMyCourseTargetPicker').disabled = true;
+        document.getElementById('WriteCourseTargetPicker').disabled = true;
     }
 }
 
@@ -98,6 +99,7 @@ function displayIsInClientInfo() {
     } else {
         document.getElementById('shareMeTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyCourseTargetPicker').classList.toggle('hidden');
+        document.getElementById('WriteCourseTargetPicker').classList.toggle('hidden');
     }
 }
 
@@ -122,22 +124,17 @@ function registerButtonHandlers() {
         }
     });
     document.getElementById('shareMyCourseTargetPicker').addEventListener('click', function () {
-        if (liff.isApiAvailable('shareTargetPicker')) {
-            liff.shareTargetPicker([{
-                'type': 'text',
-                'text': 'Hello, This semester ' + PROFILE.displayName + ' has selected following Course'
-            }
-            // , {
-            //     'type': 'image',
-            //     'originalContentUrl': PROFILE.pictureUrl,
-            //     'previewImageUrl': PROFILE.pictureUrl
-            // }
-        ]).then(function (res) {
-                if (res) alert('Course Message sent!');
-            }).catch(function (res) {
-                console.error(res);
+        fetch('/sendtest')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(myJson) {
+                console.log(myJson);
             });
-        }
+    });
+    document.getElementById('WriteCourseTargetPicker').addEventListener('click', function () {
+        
+        
     });
     // login call, only when external browser is used
     document.getElementById('liffLoginButton').addEventListener('click', function() {

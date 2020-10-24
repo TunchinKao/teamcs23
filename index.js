@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const https = require('https');
+const { response } = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 const myLiffId = process.env.MY_LIFF_ID;
@@ -13,7 +14,9 @@ app.use(express.static('public'));
 app.get('/send-id', function(req, res) {
     res.json({id: myLiffId, redirectUri });
 });
-
+app.get('/sendtest', function(req, res) {
+    res.json({theworld: zawarudo, redirectUri });
+});
 if (process.env.NODE_ENV === 'development') {
     const devCert = fs.readFileSync(
         path.resolve(__dirname, 'cert/localhost.pem')
