@@ -26,7 +26,7 @@ app.get('/a', function(req, res){
 //     var txt_index = 3;
 //     res.json({list: require('./public/return-string')({grade : txt_index})});
 // });
-app.get('requireCourseList', function(req, res){
+app.get('/requireCourseList', function(req, res){
     console.log('reqCourse');
     // var txt_index = 3;
     res.json({list: require('./public/return-string')({grade : 2})});
