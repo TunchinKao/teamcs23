@@ -134,8 +134,7 @@ function registerButtonHandlers() {
                 'text': 'Hey! Check out' + PROFILE.displayName +  'My Current Studying fields'
             }, {
                 'type': 'image',
-                'originalContentUrl': '/public/images/campaign/Percentage.jpg',
-                'previewImageUrl': '/public/images/campaign/Percentage.jpg'
+                'url': '/public/images/campaign/Percentage.jpg'
             }]).then(function (res) {
                 if (res) alert('Circle Graph sent!');
             }).catch(function (res) {
