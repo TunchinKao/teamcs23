@@ -30,6 +30,7 @@ if (process.env.NODE_ENV === 'development') {
     }, app);
     server.listen(8000, function() {
         console.log(`https listening on port 8000!`);
+        console.log(__dirname);
     });
 }
 app.listen(port, () => console.log(`http listening on port ${port}!`));
