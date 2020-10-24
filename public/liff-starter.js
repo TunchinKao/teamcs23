@@ -136,7 +136,11 @@ function registerButtonHandlers() {
         }
     });
     document.getElementById('for_test').addEventListener('click', function(){
-        
+        fetch('/a').then(function(res){
+            console.log(res.json());
+        }).catch(function(err){
+            console.log(err);
+        });
     });
 }
 
