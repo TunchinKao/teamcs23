@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const myLiffId = process.env.MY_LIFF_ID;
 const redirectUri = process.env.REDIRECT_URI;
+const test = require('./test.js');
 
 app.use(express.static('public'));
 
@@ -28,5 +29,8 @@ if (process.env.NODE_ENV === 'development') {
     server.listen(8000, function() {
         console.log(`https listening on port 8000!`);
     });
+    if(test){
+        console.log(test);
+    }
 }
 app.listen(port, () => console.log(`http listening on port ${port}!`));

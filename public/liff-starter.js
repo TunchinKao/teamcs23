@@ -25,6 +25,7 @@ window.onload = function() {
         myLiffId = defaultLiffId;
         initializeLiffOrDie(myLiffId);
     }
+    console.log("ready");
 };
 
 /**
@@ -133,6 +134,9 @@ function registerButtonHandlers() {
             liff.logout();
             window.location.reload();
         }
+    });
+    document.getElementById('for_test').addEventListener('click', function(){
+        
     });
 }
 
