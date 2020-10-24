@@ -15,7 +15,7 @@ app.get('/send-id', function(req, res) {
     res.json({id: myLiffId, redirectUri });
 });
 app.get('/send_test', function(req, res) {
-    res.json({the_world: zawarudo, redirectUri });
+    res.json({the_world: __dirname, redirectUri });
 });
 if (process.env.NODE_ENV === 'development') {
     const devCert = fs.readFileSync(
