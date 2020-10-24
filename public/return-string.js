@@ -18,7 +18,7 @@ var twoDarray=new Array();
 });*/
 
 module.exports = function(g){
-    if(g == 2)return 'aaa';
+    if(g.grade == 2)return 'aaa';
     fs.readFile('CS_require_course.txt',function(err, data){
         if(err) throw err;
     
