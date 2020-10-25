@@ -145,8 +145,10 @@ function registerButtonHandlers() {
         }
     });
     document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
-        // var reqnumber = 1;
-        fetch('/requireCourseList').then(function(res){
+        var reqnumber = 1;
+        fetch('/requireCourseList', {
+            grd: reqnumber
+        }).then(function(res){
             return res.json();
         }).then(function(res) {
             console.log('asking for /requireCourseList');
