@@ -234,7 +234,7 @@ function registerButtonHandlers() {
                 "flex": 0
             }
         }
-    });
+    }]);
     document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
         // var reqnumber = 1;
         fetch('/requireCourseList').then(function(res){
