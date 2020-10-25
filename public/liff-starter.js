@@ -74,6 +74,9 @@ function initializeApp() {
         document.getElementById('shareMyRequireTargetPicker').disabled = true;
         document.getElementById('shareMyOptimalTargetPicker').disabled = true;
         document.getElementById('shareMyCurrentCircleTargetPicker').disabled = true;
+        document.getElementsByClassName('browser-default').disabled = true;
+        document.getElementsByClassName('campaign card mb-4 shadow-sm').disabled = true;
+        
     }
 }
 
@@ -103,7 +106,9 @@ function displayIsInClientInfo() {
         document.getElementById('shareMyRequireTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyOptimalTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyCurrentCircleTargetPicker').classList.toggle('hidden');
-    
+        document.getElementsByClassName('browser-default').classList.toggle('hidden');
+        document.getElementsByClassName('campaign card mb-4 shadow-sm').classList.toggle('hidden');
+        
     }
 }
 
@@ -253,7 +258,7 @@ function registerButtonHandlers() {
             for(var index = 0; index < count; index++){
                 
                 message += res['list'][index];
-                message+='\n';
+                message +='\n';
             }
             console.log('[message]', message);
 
