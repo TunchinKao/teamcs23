@@ -68,7 +68,7 @@ function initializeApp() {
     if (liff.isLoggedIn()) {
         displayLiffData();
         document.getElementById('liffLoginButton').disabled = true;
-        document.getElementById('PersonPage').classList.visibility="visible";
+        document.getElementById('PersonPage').style.visibility="visible";
         
         document.getElementById('selector').classList.visibility="visible";
     } else {
@@ -77,7 +77,7 @@ function initializeApp() {
         document.getElementById('shareMyRequireTargetPicker').disabled = true;
         document.getElementById('shareMyOptimalTargetPicker').disabled = true;
         document.getElementById('shareMyCurrentCircleTargetPicker').disabled = true;
-        document.getElementById('PersonPage').classList.visibility="hidden";
+        document.getElementById('PersonPage').style.visibility="hidden";
         
         document.getElementById('selector').classList.visibility="hidden";
         // document.getElementById('PersonPage').disabled = true;
@@ -108,7 +108,7 @@ function displayIsInClientInfo() {
         document.getElementById('liffLogoutButton').classList.toggle('hidden');
         document.getElementById('isInClient').textContent = 'You are opening the app in the in-app browser of LINE.';
         
-        document.getElementById('PersonPage').classList.visibility="visible";
+        document.getElementById('PersonPage').style.visibility="visible";
         
         document.getElementById('selector').classList.visibility="visible";
         
@@ -118,7 +118,7 @@ function displayIsInClientInfo() {
         document.getElementById('shareMyOptimalTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyCurrentCircleTargetPicker').classList.toggle('hidden');
         
-        document.getElementById('PersonPage').classList.visibility="hidden";
+        document.getElementById('PersonPage').style.visibility="hidden";
         
         document.getElementById('selector').classList.visibility="hidden";
         // document.getElementById('PersonPage').classList.toggle('hidden');
