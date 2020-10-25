@@ -14,12 +14,11 @@ fs.readFile('CS_require_course.txt',function(err, data){
             twoDarray[i].push(sector[j]);
         }
         j+=2;
-        console.log(twoDarray[i]);
+        //console.log(twoDarray[i]);
     }
-    console.log("分隔");
 
     var map=new Array(9);
-    var maprow=1;
+    var maprow=0;
     for(var i=0;i<54;i++){
         if((twoDarray[i].join(''))=="大一上"){
             map[maprow]=new Array();
@@ -85,4 +84,8 @@ fs.readFile('CS_require_course.txt',function(err, data){
             maprow++;
         }
     }
+    var space="";
+    map[maprow]=new Array();
+    map[maprow].push(space);
+    console.log(map[maprow]);
 });
