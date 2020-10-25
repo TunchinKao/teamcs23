@@ -348,3 +348,12 @@ function toggleElement(elementId) {
         elem.style.display = 'block';
     }
 }
+
+
+// var bak = document.getElementById("graduate-list");
+// back.addEventListener("change", tryarr, false);
+
+// function tryarr(e){
+//     var aaa = e.target.selectedIndex;
+//     fetch
+// }
