@@ -117,7 +117,7 @@
     function changeCollege(index){
       var Sinner="";
       for(var i=0;i<sectors[index].length;i++){
-        Sinner=Sinner+'<option value=i>'+sectors[index][i]+'</option>';
+        Sinner=Sinner+'<option value= i>'+sectors[index][i]+'</option>';
       }
       var sectorSelect=document.getElementById("sector-list");
       sectorSelect.innerHTML=Sinner;
@@ -344,11 +344,13 @@
 </div>
 
 <script>
-  const optionElement = document.getElementById("sector-list");//監聽
+  
+  var optionElement = document.getElementById("sector-list");//監聽
   optionElement.addEventListener("change",update,false); // 當下拉式選單被點擊時，要執行什麼函數
   function update(e){
-    var select = e.target.value;
-    if(select){
+    var select = e.target.selectedIndex;
+    var coll_select = document.getElementById("college-list").selectedIndex;
+    if(select === 1 && coll_select === 5){
       document.getElementById("class_major").style.visibility="visible";
       document.getElementById("class_opt").style.visibility="visible"; 
     }
