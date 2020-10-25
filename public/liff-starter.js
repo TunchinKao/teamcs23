@@ -128,20 +128,15 @@ function registerButtonHandlers() {
         }
     });
     document.getElementById('shareMyCurrentCircleTargetPicker').addEventListener('click', function () {
+        const imageUrl = document.getElementById('placeImage').src;
         if (liff.isApiAvailable('shareTargetPicker')) {
             liff.shareTargetPicker([{
                 'type': 'text',
                 'text': 'Hey! Check out' + PROFILE.displayName +  'My Current Studying fields'
             }, {
-                "type": "image",
-                "url": "https://i.ibb.co/bXLt935/Percentage.jpg",
-                "size": "full",
-                "aspectRatio": "20:13",
-                "aspectMode": "cover",
-                "action": {
-                    "type": "uri",
-                    "uri": liff.permanentLink.createUrl()
-                }
+                'type': 'image',
+                'originalContentUrl': imageUrl,
+                'previewImageUrl': imageUrl
             }]).then(function (res) {
                 if (res) alert('Circle Graph sent!');
             }).catch(function (res) {
