@@ -259,8 +259,8 @@ function registerButtonHandlers() {
             });
         }
     });
-    //document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
-    document.getElementById('test').addEventListener('click', function(){
+    document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
+    //document.getElementById('test').addEventListener('click', function(){
         var reqnumber = 2;
         fetch('/requireCourseList', {
             method: "post",
@@ -304,8 +304,17 @@ function registerButtonHandlers() {
         });
     });
     document.getElementById('shareMyOptimalTargetPicker').addEventListener('click', function(){
-        // var reqnumber = 1;
-        fetch('/optimalCourseList').then(function(res){
+        var reqnumber = 1;
+        fetch('/optimalCourseList', {
+            method: 'post',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+            body: JSON.stringify({
+                grade: 1
+            })
+        }).then(function(res){
             return res.json();
         }).then(function(res) {
             console.log('asking for /optimalCourseList');
