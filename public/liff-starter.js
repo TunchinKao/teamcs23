@@ -412,17 +412,6 @@ function tryarr(e){
             var tNode = document.getElementById('reqCourse');
             tNode.innerHTML = "";
             tNode.innerHTML += message;
-
-            if (liff.isApiAvailable('shareTargetPicker')) {
-                liff.shareTargetPicker([{
-                    'type': 'text',
-                    'text': message
-                }]).then(function (res) {
-                    if (res) alert('Message sent!');
-                }).catch(function (res) {
-                    console.error(res);
-                });
-            }
         });
     }).catch((err) => {
         console.log(err);
