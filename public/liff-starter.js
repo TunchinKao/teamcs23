@@ -75,7 +75,7 @@ function initializeApp() {
         document.getElementById('shareMyRequireTargetPicker').disabled = true;
         document.getElementById('shareMyOptimalTargetPicker').disabled = true;
         document.getElementById('shareMyCurrentCircleTargetPicker').disabled = true;
-        // document.getElementById("PersonPage").style.visibility="hidden";
+        document.getElementById("PersonPage").style.visibility="hidden";
         // document.getElementById('PersonPage').disabled = true;
         // document.getElementsByClassName('campaign card mb-4 shadow-sm').disabled = true;
         
