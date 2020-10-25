@@ -138,10 +138,6 @@ function registerButtonHandlers() {
                 'type': 'text',
                 'text': 'Hey! Check out' + PROFILE.displayName +  'My Current Studying fields'
             }, {
-                'type': 'image',
-                'originalContentUrl': imageUrl,
-                'previewImageUrl': imageUrl
-            }, {
                 'type': 'flex',
                 'altText': name,
                 'contents': {
