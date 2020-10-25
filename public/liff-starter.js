@@ -25,6 +25,7 @@ window.onload = function() {
         myLiffId = defaultLiffId;
         initializeLiffOrDie(myLiffId);
     }
+    console.log("ready");
 };
 
 /**
@@ -70,7 +71,9 @@ function initializeApp() {
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
         document.getElementById('shareMeTargetPicker').disabled = true;
-        document.getElementById('shareMyCourseTargetPicker').disabled = true;
+        document.getElementById('shareMyRequireTargetPicker').disabled = true;
+        document.getElementById('shareMyOptimalTargetPicker').disabled = true;
+        document.getElementById('shareMyCurrentCircleTargetPicker').disabled = true;
     }
 }
 
@@ -97,7 +100,10 @@ function displayIsInClientInfo() {
         document.getElementById('isInClient').textContent = 'You are opening the app in the in-app browser of LINE.';
     } else {
         document.getElementById('shareMeTargetPicker').classList.toggle('hidden');
-        document.getElementById('shareMyCourseTargetPicker').classList.toggle('hidden');
+        document.getElementById('shareMyRequireTargetPicker').classList.toggle('hidden');
+        document.getElementById('shareMyOptimalTargetPicker').classList.toggle('hidden');
+        document.getElementById('shareMyCurrentCircleTargetPicker').classList.toggle('hidden');
+    
     }
 }
 
@@ -121,30 +127,111 @@ function registerButtonHandlers() {
             });
         }
     });
-    document.getElementById('shareMyCourseTargetPicker').addEventListener('click', function () {
+    document.getElementById('shareMyCurrentCircleTargetPicker').addEventListener('click', function () {
+        const imageUrl = document.getElementById('placeImage').src;
         if (liff.isApiAvailable('shareTargetPicker')) {
             liff.shareTargetPicker([{
                 'type': 'text',
-                'text': 'Hello, This semester ' + PROFILE.displayName + ' has selected following Course'
-            }
-            // , {
-            //     'type': 'image',
-            //     'originalContentUrl': PROFILE.pictureUrl,
-            //     'previewImageUrl': PROFILE.pictureUrl
-            // }
-        ]).then(function (res) {
-                if (res) alert('Course Message sent!');
+                'text': 'Hey! Check out' + PROFILE.displayName +  'My Current Studying fields'
+            }, {
+                'type': 'image',
+                'originalContentUrl': imageUrl,
+                'previewImageUrl': imageUrl
+            }]).then(function (res) {
+                if (res) alert('Circle Graph sent!');
             }).catch(function (res) {
                 console.error(res);
             });
         }
     });
+    document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
+        // var reqnumber = 1;
+        fetch('/requireCourseList').then(function(res){
+            return res.json();
+        }).then(function(res) {
+            console.log('asking for /requireCourseList');
+            // console.log('[res]', res);  
+            
+            var message = "";
+            // console.log('[res.length]', res.length);
+            var count = res['list'].length;
+            console.log('[count]', count);
+            for(var index = 0; index < count; index++){
+                
+                message += res['list'][index];
+                
+                message+='\n';
+            }
+            console.log('[message]', message);
+
+            if (liff.isApiAvailable('shareTargetPicker')) {
+                liff.shareTargetPicker([{
+                    'type': 'text',
+                    'text': message
+                }]).then(function (res) {
+                    if (res) alert('Message sent!');
+                }).catch(function (res) {
+                    console.error(res);
+                });
+            }
+        }).catch(function(err){
+            console.log(err);
+        });
+    });
+    document.getElementById('shareMyOptimalTargetPicker').addEventListener('click', function(){
+        // var reqnumber = 1;
+        fetch('/optimalCourseList').then(function(res){
+            return res.json();
+        }).then(function(res) {
+            console.log('asking for /optimalCourseList');
+            // console.log('[res]', res);  
+            
+            var message = "";
+            // console.log('[res.length]', res.length);
+            var count = res['list'].length;
+            console.log('[count]', count);
+            for(var index = 0; index < count; index++){
+                
+                message += res['list'][index];
+                
+                message+='\n';
+            }
+            console.log('[message]', message);
+
+            if (liff.isApiAvailable('shareTargetPicker')) {
+                liff.shareTargetPicker([{
+                    'type': 'text',
+                    'text': message
+                }]).then(function (res) {
+                    if (res) alert('Message sent!');
+                }).catch(function (res) {
+                    console.error(res);
+                });
+            }
+        }).catch(function(err){
+            console.log(err);
+        });
+    });
+    // document.getElementById('shareMyCourseTargetPicker').addEventListener('click', function () {
+    //     if (liff.isApiAvailable('shareTargetPicker')) {
+    //         liff.shareTargetPicker([{
+    //             'type': 'text',
+    //             'text': 'Hello, This semester ' + PROFILE.displayName + ' has selected following Course'
+    //         }
+    //     ]).then(function (res) {
+    //             if (res) alert('Course Message sent!');
+    //         }).catch(function (res) {
+    //             console.error(res);
+    //         });
+    //     }
+    // });
     // login call, only when external browser is used
     document.getElementById('liffLoginButton').addEventListener('click', function() {
         if (!liff.isLoggedIn()) {
             liff.login();      
         }
     });
+    
 
     // logout call only when external browse
     document.getElementById('liffLogoutButton').addEventListener('click', function() {
