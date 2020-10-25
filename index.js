@@ -32,8 +32,8 @@ app.get('/a', function(req, res){
 app.post('/requireCourseList', function(req, res){
     console.log('reqCourse');
     // var txt_index = 3;
-    console.log(req.body);
-    res.json({list: require('./public/return-string')({grade : req.body.grd})});
+    // console.log(req.body);
+    res.json({list: require('./public/return-string')({grade : 2})});
 });
 app.get('/optimalCourseList', function(req, res){
     console.log('reqCourse');
