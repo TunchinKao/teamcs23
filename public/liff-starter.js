@@ -157,7 +157,7 @@ function registerButtonHandlers() {
         if (liff.isApiAvailable('shareTargetPicker')) {
             liff.shareTargetPicker([{
                 'type': 'text',
-                'text': 'Hey! Check out' + PROFILE.displayName +  'My Current Studying fields'
+                'text': 'Hey! Check out ' + PROFILE.displayName + 's Current Studying fields'
             }, {
                 'type': 'flex',
                 'altText': name,
