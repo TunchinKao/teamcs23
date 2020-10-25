@@ -68,18 +68,18 @@ function initializeApp() {
     if (liff.isLoggedIn()) {
         displayLiffData();
         document.getElementById('liffLoginButton').disabled = true;
-        document.getElementById("PersonPage").classList.visibility="visible";
+        document.getElementById('PersonPage').classList.visibility="visible";
         
-        document.getElementById("selector").classList.visibility="visible";
+        document.getElementById('selector').classList.visibility="visible";
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
         document.getElementById('shareMeTargetPicker').disabled = true;
         document.getElementById('shareMyRequireTargetPicker').disabled = true;
         document.getElementById('shareMyOptimalTargetPicker').disabled = true;
         document.getElementById('shareMyCurrentCircleTargetPicker').disabled = true;
-        document.getElementById("PersonPage").classList.visibility="hidden";
+        document.getElementById('PersonPage').classList.visibility="hidden";
         
-        document.getElementById("selector").classList.visibility="hidden";
+        document.getElementById('selector').classList.visibility="hidden";
         // document.getElementById('PersonPage').disabled = true;
         // document.getElementsByClassName('campaign card mb-4 shadow-sm').disabled = true;
         
