@@ -253,7 +253,6 @@ function registerButtonHandlers() {
             for(var index = 0; index < count; index++){
                 
                 message += res['list'][index];
-                
                 message+='\n';
             }
             console.log('[message]', message);
