@@ -110,7 +110,7 @@
      graduateSelect.innerHTML=inner;
 
 
-     const optionElement = document.getElementById("graduate-list");//監聽
+     const optionElement = document.getElementById("graduate-list")//監聽
       optionElement.addEventListener("change",update,false); // 當下拉式選單被點擊時，要執行什麼函數
       function update(e){
           var select = e.target.value;
@@ -151,6 +151,40 @@
 <div id="class_major" class = "center">
   請選擇您已修過的課程。
   <br>
+
+  <p>必修</p>
+  <table>
+    <thead>
+      <tr>
+          <th>課程名稱</th>
+          <th>學分數</th>
+          <th>推薦年級</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>普通物理一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>微積分一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>計算機程式設計一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>離散數學</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <script>
@@ -160,7 +194,6 @@
     btnTag.textContent = "必修"; //button tag 塞入文字
     divTag.appendChild(btnTag); //放入 div tag 中
   }
-</script>
-  
+</script>  
   </body>
 </html>
