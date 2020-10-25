@@ -69,6 +69,8 @@ function initializeApp() {
         displayLiffData();
         document.getElementById('liffLoginButton').disabled = true;
         document.getElementById("PersonPage").classList.visibility="visible";
+        
+        document.getElementById("selector").classList.visibility="visible";
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
         document.getElementById('shareMeTargetPicker').disabled = true;
@@ -76,6 +78,8 @@ function initializeApp() {
         document.getElementById('shareMyOptimalTargetPicker').disabled = true;
         document.getElementById('shareMyCurrentCircleTargetPicker').disabled = true;
         document.getElementById("PersonPage").classList.visibility="hidden";
+        
+        document.getElementById("selector").classList.visibility="hidden";
         // document.getElementById('PersonPage').disabled = true;
         // document.getElementsByClassName('campaign card mb-4 shadow-sm').disabled = true;
         
@@ -105,6 +109,9 @@ function displayIsInClientInfo() {
         document.getElementById('isInClient').textContent = 'You are opening the app in the in-app browser of LINE.';
         
         document.getElementById('PersonPage').classList.visibility="visible";
+        
+        document.getElementById('selector').classList.visibility="visible";
+        
     } else {
         document.getElementById('shareMeTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyRequireTargetPicker').classList.toggle('hidden');
@@ -112,6 +119,8 @@ function displayIsInClientInfo() {
         document.getElementById('shareMyCurrentCircleTargetPicker').classList.toggle('hidden');
         
         document.getElementById('PersonPage').classList.visibility="hidden";
+        
+        document.getElementById('selector').classList.visibility="hidden";
         // document.getElementById('PersonPage').classList.toggle('hidden');
         // document.getElementsById('PersonPage').
         // document.getElementsByClassName('campaign card mb-4 shadow-sm').classList.toggle('hidden');
