@@ -359,3 +359,52 @@ function toggleElement(elementId) {
         elem.style.display = 'block';
     }
 }
+
+var back = document.getElementById("graduate-list");
+back.addEventListener("change", tryarr, false);
+function tryarr(e){
+    var aaa = e.target.selectedIndex;
+    //window.alert(aaa);
+    fetch('/requireCourseList', {
+        method: 'post',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        body: JSON.stringify({
+            grade: aaa
+        })
+    }).then((res) => {
+            console.log('asking for /requireCourseList');
+            // console.log('[res]', res);  
+            res.json().then((res) =>{
+            console.log(res);
+            var message = "";
+            // console.log('[res.length]', res.length);
+            var count = res['list'].length;
+            console.log('[count]', count);
+            for(var index = 0; index < count; index++){
+                
+                message += res['list'][index];
+                
+                message+='</br>';
+            }
+            var tNode = document.getElementById('reqCourse');
+            tNode.innerHTML = "";
+            tNode.innerHTML += message;
+
+            if (liff.isApiAvailable('shareTargetPicker')) {
+                liff.shareTargetPicker([{
+                    'type': 'text',
+                    'text': message
+                }]).then(function (res) {
+                    if (res) alert('Message sent!');
+                }).catch(function (res) {
+                    console.error(res);
+                });
+            }
+        });
+    }).catch((err) => {
+        console.log(err);
+    })
+}
