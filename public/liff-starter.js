@@ -129,19 +129,110 @@ function registerButtonHandlers() {
     });
     document.getElementById('shareMyCurrentCircleTargetPicker').addEventListener('click', function () {
         const imageUrl = document.getElementById('placeImage').src;
+        const name = document.getElementById('campaignName').textContent || ' ';
+        const place = document.getElementById('campaignPlace').textContent || ' ';
+        const time = document.getElementById('campaignTime').textContent || ' ';
+        
         if (liff.isApiAvailable('shareTargetPicker')) {
             liff.shareTargetPicker([{
-                'type': 'text',
-                'text': 'Hey! Check out' + PROFILE.displayName +  'My Current Studying fields'
-            }, {
-                'type': 'image',
-                'originalContentUrl': imageUrl,
-                'previewImageUrl': imageUrl
-            }]).then(function (res) {
-                if (res) alert('Circle Graph sent!');
-            }).catch(function (res) {
-                console.error(res);
-            });
+                
+            'type': 'text',
+            'text': 'Hey! Check out' + PROFILE.displayName +  'My Current Studying fields'
+        }, {'type': 'flex',
+        'altText': name,
+        'contents': {
+            "type": "bubble",
+            "hero": {
+                "type": "image",
+                "url": imageUrl,
+                "size": "full",
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                // "action": {
+                //     "type": "uri",
+                //     "uri": liff.permanentLink.createUrl()
+                // }
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": name,
+                        "weight": "bold",
+                        "size": "xl"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "margin": "lg",
+                        "spacing": "sm",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "baseline",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "Place",
+                                        "color": "#aaaaaa",
+                                        "size": "sm",
+                                        "flex": 1
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": place,
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "sm",
+                                        "flex": 5
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "box",
+                                "layout": "baseline",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "Time",
+                                        "color": "#aaaaaa",
+                                        "size": "sm",
+                                        "flex": 1
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": time,
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "sm",
+                                        "flex": 5
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Infor: tunchinkao@gmail.com"
+                    },
+                    {
+                        "type": "spacer",
+                        "size": "sm"
+                    }
+                ],
+                "flex": 0
+            }
         }
     });
     document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
