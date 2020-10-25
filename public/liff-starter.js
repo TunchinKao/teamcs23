@@ -236,11 +236,22 @@ function registerButtonHandlers() {
             }).catch(function (res) {
                 console.error(res);
             });
-        }}
-    );
-    document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
-        // var reqnumber = 1;
-        fetch('/requireCourseList').then(function(res){
+        }
+    });
+    //document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
+    document.getElementById('test').addEventListener('click', function(){
+        var reqnumber = 2;
+        fetch('/requireCourseList', {
+            method: "post",
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+            body: JSON.stringify({
+                grade : reqnumber,
+                department : 'cs'
+            })
+        }).then(function(res){
             return res.json();
         }).then(function(res) {
             console.log('asking for /requireCourseList');
@@ -348,12 +359,3 @@ function toggleElement(elementId) {
         elem.style.display = 'block';
     }
 }
-
-
-// var bak = document.getElementById("graduate-list");
-// back.addEventListener("change", tryarr, false);
-
-// function tryarr(e){
-//     var aaa = e.target.selectedIndex;
-//     fetch
-// }
