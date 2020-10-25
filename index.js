@@ -7,10 +7,13 @@ const app = express();
 const port = process.env.PORT || 5000;
 const myLiffId = process.env.MY_LIFF_ID;
 const redirectUri = process.env.REDIRECT_URI;
+const bodyParser = require('body-parser')
 // const axios = require('axios');
 // const tArr = require('./public/return-string')({grade : 2});
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/send-id', function(req, res) {
     res.json({id: myLiffId, redirectUri });
@@ -26,10 +29,11 @@ app.get('/a', function(req, res){
 //     var txt_index = 3;
 //     res.json({list: require('./public/return-string')({grade : txt_index})});
 // });
-app.get('/requireCourseList', function(req, res){
+app.post('/requireCourseList', function(req, res){
     console.log('reqCourse');
     // var txt_index = 3;
-    res.json({list: require('./public/return-string')({grade : grd})});
+    console.log(req.body);
+    res.json({list: require('./public/return-string')({grade : req.body.grd})});
 });
 app.get('/optimalCourseList', function(req, res){
     console.log('reqCourse');

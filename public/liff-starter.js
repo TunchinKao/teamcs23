@@ -238,10 +238,19 @@ function registerButtonHandlers() {
             });
         }
     });
-    document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
-        var reqnumber = 1;
+    //document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
+    document.getElementById('test').addEventListener('click', function(){
+        var reqnumber = 2;
         fetch('/requireCourseList', {
-            grd: reqnumber
+            method: "post",
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+            body: JSON.stringify({
+                grd : reqnumber,
+                department : 'cs'
+            })
         }).then(function(res){
             return res.json();
         }).then(function(res) {
