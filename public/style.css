@@ -6,9 +6,15 @@
 }
 
 .campaign {
+<<<<<<< HEAD
   position: relative;
   width: 300px;
   border-radius: 20px;
+=======
+    position: relative;
+    width: 500px;
+    border-radius: 20px;
+>>>>>>> bdd3c9f67a610bb7ae204a371f4ee7ccb9e16474
 }
 
 .campaign img {
