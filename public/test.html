@@ -110,7 +110,7 @@
      graduateSelect.innerHTML=inner;
 
 
-     const optionElement = document.getElementById("graduate-list");//監聽
+     const optionElement = document.getElementById("graduate-list")//監聽
       optionElement.addEventListener("change",update,false); // 當下拉式選單被點擊時，要執行什麼函數
       function update(e){
           var select = e.target.value;
@@ -148,32 +148,52 @@
 
 
 
-<div id="class_major"></div>
+<div id="class_major" class = "center">
+  請選擇您已修過的課程。
+  <br>
+
+  <p>必修</p>
+  <table>
+    <thead>
+      <tr>
+          <th>課程名稱</th>
+          <th>學分數</th>
+          <th>推薦年級</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>普通物理一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>微積分一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>計算機程式設計一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>離散數學</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <script>
-  var fs=require('fs');
-  fs.readFile('CS_require_course.txt',function(err, data){
-    if(err) throw err;
-
-    var sector=new Array();
-    sector=data.toString();
-    var twoDarray=new Array();
-    var j=0;
-    for(var i=0;i<53;i++){
-      twoDarray[i]=new Array();
-      for(j;sector[j]!='\n';j++){
-        twoDarray[i].push(sector[j]);
-      }
-      j++;
-    }
-  })
-
-  
-
-  
-
-  
-</script>
-  
+  let divTag = document.getElementById('class_major'); //取得 div 節點
+  for(let j = 1; j <= 10; j++){
+    let btnTag = document.createElement('button'); //做一個 button tag
+    btnTag.textContent = "必修"; //button tag 塞入文字
+    divTag.appendChild(btnTag); //放入 div tag 中
+  }
+</script>  
   </body>
 </html>

@@ -1,3 +1,4 @@
+const { EOF } = require('dns');
 var fs=require('fs');
 var twoDarray=new Array();
 
@@ -43,12 +44,13 @@ module.exports = function(g){
     var sector=new Array();
     sector=data.toString();
     var j=0;
-    for(var i=0;i<53;i++){
+    for(var i=0;i<54;i++){
         twoDarray[i]=new Array();
-        for(j;sector[j]!='\n';j++){
+        for(j;sector[j]!='\n'&&sector[j]!='\r';j++){
+            if(i==53&&j==sector.length)break;
             twoDarray[i].push(sector[j]);
         }
-        j++;
+        j+=2;
         console.log(twoDarray[i]);
     }
     console.log(twoDarray[52].join(''));
