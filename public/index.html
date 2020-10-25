@@ -133,6 +133,20 @@
     }
      graduateSelect.innerHTML=inner;
   </script>
+
+<div id="class_major" class = "center">
+  請選擇您已修過的課程。
+  <br>
+</div>
+
+<script>
+  let divTag = document.getElementById('class_major'); //取得 div 節點
+  for(let j = 1; j <= 10; j++){
+    let btnTag = document.createElement('button'); //做一個 button tag
+    btnTag.textContent = "必修"; //button tag 塞入文字
+    divTag.appendChild(btnTag); //放入 div tag 中
+  }
+</script>
         <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         <script src="liff-starter.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
