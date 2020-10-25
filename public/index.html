@@ -109,7 +109,7 @@
     sectors[2]=['工程與系統科學系', '生醫工程與環境科學系', '原子科學院學士班'];	
     sectors[3]=['中國文學系', '外國語文學系', '人文社會學院學士班'];
     sectors[4]=['生命科學系', '醫學科學系', '生命科學院學士班']
-    sectors[5]=['資訊工程學系', '電機工程學系', '電機資訊學院學士班'];
+    sectors[5]=['電機工程學系','資訊工程學系',  '電機資訊學院學士班'];
     sectors[6]=['計量財務金融學系', '經濟學系', '科技管理學院學士班'];
     sectors[7]=['教育與學習科技學系', '幼兒教育學系', '特殊教育學系', '教育與諮商學系', '運動科學系', '英語教學系', '環境與文化資源學系', '竹師教育學院學士班'];
     sectors[8]=['音樂學系', '藝術與設計學系', '藝術學院學士班'];
@@ -125,7 +125,7 @@
           changeCollege(document.getElementById("college-list").selectedIndex);
           
 
-          var graduate = ['大學部一年級上學期', '大學部一年級下學期','大學部二年級上學期','大學部二年級下學期','大學部三年級上學期','大學部三年級下學期','大學部四年級上學期','大學部四年級下學期','研究所一年級', '研究所二年級'];
+          var graduate = ['大學部一年級上學期', '大學部一年級下學期','大學部二年級上學期','大學部二年級下學期','大學部三年級上學期','大學部三年級下學期','大學部四年級上學期','大學部四年級下學期'];
           var graduateSelect=document.getElementById("graduate-list");
     var inner="";
      for(var i=0;i<graduate.length;i++){
@@ -133,6 +133,232 @@
     }
      graduateSelect.innerHTML=inner;
   </script>
+  <!-- <p class="center">請選擇您已修過的課程。</p> -->
+<div id="class_major" class = "center"style="visibility:hidden">
+  
+  必修課程
+  <table class = "highlight" >
+    <thead>
+      <tr>
+          <th>課程名稱</th>
+          <th>學分數</th>
+          <th>推薦年級</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>普通物理一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>微積分一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>計算機程式設計一</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>離散數學</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>普通物理二</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>微積分二</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>計算機程式設計二</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>邏輯設計</td>
+        <td>3</td>
+        <td>一年級</td>
+      </tr>
+      <tr>
+        <td>資料結構</td>
+        <td>3</td>
+        <td>二年級</td>
+      </tr>
+      <tr>
+        <td>線性代數</td>
+        <td>3</td>
+        <td>二年級</td>
+      </tr>
+      <tr>
+        <td>邏輯設計實驗</td>
+        <td>3</td>
+        <td>二年級</td>
+      </tr>
+      <tr>
+        <td>機率</td>
+        <td>3</td>
+        <td>二年級</td>
+      </tr>
+      <tr>
+        <td>計算機結構</td>
+        <td>3</td>
+        <td>二年級</td>
+      </tr>
+      <tr>
+        <td>軟體設計實驗</td>
+        <td>3</td>
+        <td>二年級</td>
+      </tr>
+      <tr>
+        <td>作業系統</td>
+        <td>3</td>
+        <td>三年級</td>
+      </tr>
+      <tr>
+        <td>計算方法設計</td>
+        <td>3</td>
+        <td>三年級</td>
+      </tr>
+      <tr>
+        <td>系統整合實作一</td>
+        <td>2</td>
+        <td>三年級</td>
+      </tr>
+      <tr>
+        <td>系統整合實作二</td>
+        <td>2</td>
+        <td>四年級</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div id="class_opt" class = "center" style="visibility:hidden">
+  
+  專業選修課程
+  <table class = "highlight">
+    <thead>
+      <tr>
+          <th>課程名稱</th>
+          <th>學分數</th>
+          <th>專業選修類別</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>常微分方程</td>
+        <td>3</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>訊號與系統</td>
+        <td>3</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>科學計算</td>
+        <td>3</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>正規語言</td>
+        <td>3</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>電路與電子學一/td>
+        <td>3</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>積體電路設計概論</td>
+        <td>3</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>嵌入式系統概論</td>
+        <td>3</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>編譯器設計</td>
+        <td>3</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>數位系統設計</td>
+        <td>3</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>計算機網路概論</td>
+        <td>3</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>軟體工程</td>
+        <td>3</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>密碼與網路安全概論</td>
+        <td>3</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>平行計算概論</td>
+        <td>3</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>資料庫系統概論</td>
+        <td>3</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>人工智慧概論</td>
+        <td>3</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>多媒體技術概論</td>
+        <td>3</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>機器學習概論</td>
+        <td>3</td>
+        <td>D</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<script>
+  const optionElement = document.getElementById("sector-list");//監聽
+  optionElement.addEventListener("change",update,false); // 當下拉式選單被點擊時，要執行什麼函數
+  function update(e){
+    var select = e.target.value;
+    if(select){
+      document.getElementById("class_major").style.visibility="visible";
+      document.getElementById("class_opt").style.visibility="visible"; 
+    }
+    else{
+      document.getElementById("class_major").style.visibility="hidden";
+      document.getElementById("class_opt").style.visibility="hidden"; 
+    }
+  }
+
+</script>
         <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         <script src="liff-starter.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

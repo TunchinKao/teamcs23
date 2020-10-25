@@ -236,8 +236,8 @@ function registerButtonHandlers() {
             }).catch(function (res) {
                 console.error(res);
             });
-        }
-    });
+        }}
+    );
     document.getElementById('shareMyRequireTargetPicker').addEventListener('click', function(){
         var reqnumber = 1;
         fetch('/requireCourseList', {
