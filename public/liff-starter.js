@@ -103,11 +103,15 @@ function displayIsInClientInfo() {
         document.getElementById('liffLoginButton').classList.toggle('hidden');
         document.getElementById('liffLogoutButton').classList.toggle('hidden');
         document.getElementById('isInClient').textContent = 'You are opening the app in the in-app browser of LINE.';
+        
+        document.getElementById("PersonPage").style.visibility="visible";
     } else {
         document.getElementById('shareMeTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyRequireTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyOptimalTargetPicker').classList.toggle('hidden');
         document.getElementById('shareMyCurrentCircleTargetPicker').classList.toggle('hidden');
+        
+        document.getElementById("PersonPage").style.visibility="hidden";
         // document.getElementById('PersonPage').classList.toggle('hidden');
         // document.getElementsById('PersonPage').
         // document.getElementsByClassName('campaign card mb-4 shadow-sm').classList.toggle('hidden');
